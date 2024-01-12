@@ -22,13 +22,13 @@ pipeline {
                     fi
                     '''
                 sh 'cd ~/ros2_ws/src/ros2_ci'
-                sh 'docker build . -t ros2_ci'
-                sh 'docker run --name ros2_ci --rm -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -it ros2_ci:latest && sleep 30s'
+                sh 'sudo docker build . -t ros2_ci'
+                sh 'sudo docker run --name ros2_ci --rm -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -it ros2_ci:latest && sleep 30s'
             }
         }
         stage('TEST'){
             steps{
-                sh 'docker exec ros2_ci bash -c "source /galactic_ws/install/setup.bash && colcon test --packages-select tortoisebot_waypoints --event-handler=console_direct+"'
+                sh 'sudo docker exec ros2_ci bash -c "source /galactic_ws/install/setup.bash && colcon test --packages-select tortoisebot_waypoints --event-handler=console_direct+"'
             }
         }   
     }
