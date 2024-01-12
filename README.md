@@ -2,7 +2,7 @@
 
 Execute these steps in the command line interface:
 
-1. audo apt update
+1. sudo apt update
 2. sudo apt install docker docker-compose -y
 3. sudo systemctl start docker
 4. sudo usermod -a -G docker $USER
