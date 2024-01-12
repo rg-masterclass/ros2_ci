@@ -1,7 +1,25 @@
+# How to install Docker (if unavailable in the workspace)
+
+Execute these steps in the command line interface:
+
+1. audo apt update
+2. sudo apt install docker docker-compose -y
+3. sudo systemctl start docker
+4. sudo usermod -a -G docker $USER
+5. newgrp docker
+6. cd ~/ros2_ws/src/ros2_ci/
+
+Verify if you can use the docker environment:
+
+```console
+user:~/ros2_ws/src/ros2_ci$ docker ps
+IMAGE      CREATED     STATUS     NAMES
+```
+
 # How to run Jenkins
 
 ```console
-# ~/ros2_ws/src/ros2_ci/ # go into the project directory
+# cd ~/ros2_ws/src/ros2_ci/ # go into the project directory
 # ./start_jenkins.sh
 ```
 
@@ -75,7 +93,7 @@ Now, you can change something in the code. For example, you can use something li
 user:~/ros2_ws/src/ros2_ci$ echo "123" > simple_counter.txt
 ```
 
-Perform these steps in the command line interface:
+Execute these steps in the command line interface:
 
 1. git add .
 2. git commit -m "simple change"
