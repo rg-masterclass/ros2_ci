@@ -11,7 +11,7 @@ pipeline {
         }
         stage('BUILD'){
             steps{
-                sh 'cd ~/ros2/src'
+                sh 'cd ~/ros2_ws/src'
                 sh '''
                     #!/bin/bash
                     if [ ! -d "ros2_ci" ]; then
@@ -21,7 +21,7 @@ pipeline {
                         git pull origin main
                     fi
                     '''
-                sh 'cd ~/ros2/src/ros2_ci'
+                sh 'cd ~/ros2_ws/src/ros2_ci'
                 sh 'docker build . -t ros2_ci'
                 sh 'docker run --name ros2_ci --rm -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -it ros2_ci:latest && sleep 30s'
             }
