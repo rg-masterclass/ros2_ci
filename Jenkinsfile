@@ -15,7 +15,7 @@ pipeline {
                 sh '''
                     #!/bin/bash
                     if [ ! -d "ros2_ci" ]; then
-                        git clone https://github.com/rg-masterclass/ros1_ci.git
+                        git clone https://github.com/rg-masterclass/ros2_ci.git
                     else 
                         cd ros2_ci
                         git pull origin main
