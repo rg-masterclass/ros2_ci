@@ -33,7 +33,7 @@ WORKDIR /galactic_ws
 RUN rosdep update
 RUN rosdep install --from-paths src --ignore-src -r -y
 
-RUN /bin/bash -c "source /opt/ros/galactic/setup.bash && cd /galactic_ws && colcon build"
+RUN /bin/bash -c "source /opt/ros/galactic/setup.bash && cd /galactic_ws && colcon build 2>&1 > /galactic_ws/build.log"
 
 RUN echo "source /galactic_ws/install/setup.bash" >> ~/.bashrc
 
