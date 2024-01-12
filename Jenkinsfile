@@ -23,7 +23,7 @@ pipeline {
                     '''
                 sh 'cd ~/ros2_ws/src/ros2_ci'
                 sh 'sudo docker build . -t ros2_ci'
-                sh 'sudo docker run --name ros2_ci --rm -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix ros2_ci:latest && sleep 30s'
+                sh 'sudo docker run --name ros2_ci --rm -d -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix ros2_ci:latest && sleep 30s'
             }
         }
         stage('TEST'){
